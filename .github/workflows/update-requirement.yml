@@ -1,0 +1,46 @@
+name: Update Backend Requirements
+
+on:
+  push:
+    paths:
+      - "backend/**"
+    branches:
+      - main
+
+jobs:
+  update-reqs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Needed to push changes
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          cd backend
+          python -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Freeze and update requirements.txt
+        run: |
+          cd backend
+          source venv/bin/activate
+          pip freeze > requirements.txt
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --exit-code backend/requirements.txt; then
+            git add backend/requirements.txt
+            git commit -m "chore: update backend requirements.txt"
+            git push
+          fi
