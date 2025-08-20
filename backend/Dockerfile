@@ -1,6 +1,14 @@
 FROM python:3.11
-WORKDIR /app
+
+# Set the working directory in the container
+WORKDIR /app 
+
+# Install system dependencies
 COPY requirements.txt .
 RUN pip install -r requirements.txt
+
+# copy the application code to the container
 COPY . .
-CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000"]
+
+# Run all migrations
+CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000"] 
