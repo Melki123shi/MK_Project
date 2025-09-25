@@ -2,7 +2,7 @@ import { Facebook, Instagram, Twitter } from "lucide-react";
 
 export default function Footer() {
   return (
-    <div className="flex justify-center gap-24 p-6 bg-gray-200 dark:bg-black/45 py-12 text-gray-800 dark:text-gray-200">
+    <div className="flex justify-center gap-24 p-6 bg-gray-200 dark:bg-gray-900/85 py-12 text-gray-800 dark:text-gray-200">
       <div>
         {/* Footer content with social media information and contact with email choice */}
         <h4 className="font-bold text-2xl mb-8">Follow us on social media</h4>

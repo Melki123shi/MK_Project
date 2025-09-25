@@ -29,8 +29,8 @@ const NavBar = () => {
     {
       label: "Materials",
       submenu: [
-        { href: "/books", label: "Books" },
-        { href: "/videos", label: "Videos" },
+        { href: "/materials/books", label: "Books" },
+        { href: "/materials/videos", label: "Videos" },
       ],
     },
     { href: "/trip", label: "Trip" },
@@ -78,11 +78,13 @@ const NavBar = () => {
             <DropdownMenu key={link.label}>
               <DropdownMenuTrigger className="hover:cursor-pointer">
                 {link.label}
-                {activeLink === "/materials" && (
+                {activeLink.split('/')[1] === "materials" && (
                   <div className="h-1 w-[80%] m-auto bg-primary rounded-full" />
                 )}
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
+              <DropdownMenuContent onClick={()=>{
+                
+              }}>
                 {link.submenu?.map((sublink) => (
                   <DropdownMenuLabel key={sublink.label}>
                     <Link href={sublink.href!}>{sublink.label}</Link>
@@ -97,12 +99,16 @@ const NavBar = () => {
       {/* User profile section */}
       <div className="flex gap-4 my-auto">
         <DarkModeToggler />
-        <Button variant="outline" className="hover:cursor-pointer ">
-          Log in
-        </Button>
-        <Button className="bg-primary text-white hover:cursor-pointer ">
-          Sign up
-        </Button>
+        <Link href="/auth/login">
+          <Button variant="outline" className="hover:cursor-pointer ">
+            Log in
+          </Button>
+        </Link>
+        <Link href="/auth/register">
+          <Button className="bg-primary text-white hover:cursor-pointer ">
+            Sign up
+          </Button>
+        </Link>
       </div>
     </nav>
   );
