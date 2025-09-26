@@ -1,7 +1,6 @@
 "use client";
 
-import { ChangeEvent, EventHandler, FormEvent, InputEventHandler, useState } from "react";
-import Auth from "../layout";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { FcGoogle } from "react-icons/fc";
@@ -14,8 +13,6 @@ const Login = () => {
     email: "",
     password: ""
   });
-  const [error, setError] = useState("")
-  const [isLoading, setIsLoading] = useState(true)
   
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -91,7 +88,7 @@ const Login = () => {
         Login
       </Button>
       <p className="mt-4 text-sm text-gray-400">
-        Don't have an account?{" "}
+        Don`&apos;`t have an account?{" "}
         <Link href="signup" className="text-blue-500">
           Signup
         </Link>
