@@ -4,13 +4,11 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
-  CardFooter,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 import { Question } from "@/lib/types/question-types";
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
-import { Separator } from "./separator";
 
 const QuestionCard = ({ question }: { question: Question }) => {
   return (

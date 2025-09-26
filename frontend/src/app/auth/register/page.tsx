@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import Auth from "../layout";
 import Link from "next/link";
 import Visible from "@/components/ui/visible";
 
