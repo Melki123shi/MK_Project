@@ -1,4 +1,4 @@
-import { Question, Answer } from "@/lib/types/types";
+import { Question } from "@/lib/types/question-types";
 
 export const dummyQuestions: Question[] = [
     {
