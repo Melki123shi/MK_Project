@@ -66,7 +66,8 @@ const NavBar = () => {
               href={link.href}
               className={clsx(
                 activeLink === link.href &&
-                  "text-primary dark:text-white font-bold"
+                  "text-primary dark:text-white font-bold ",
+                  "hover:text-primary"
               )}
             >
               {link.label}
@@ -76,7 +77,7 @@ const NavBar = () => {
             </Link>
           ) : (
             <DropdownMenu key={link.label}>
-              <DropdownMenuTrigger className="hover:cursor-pointer">
+              <DropdownMenuTrigger className="hover:cursor-pointer hover:text-primary">
                 {link.label}
                 {activeLink.split('/')[1] === "materials" && (
                   <div className="h-1 w-[80%] m-auto bg-primary rounded-full" />
